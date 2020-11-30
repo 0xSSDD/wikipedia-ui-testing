@@ -19,17 +19,9 @@ describe("First test suite", async () => {
 
     // generate the link
     linktoCommons = await page.$(commonsPathInput);
-    // linkEmail = await page.$(emailInput);
-    // linkPassword = await page.$(passwordInput);
-    // linkSubmit = await page.$(submitSelector);
-    // await linkEmail.click({ clickCount: 3 });
-    // await linkEmail.type("tariqul.islam.rony@gmail.com"); // add the email address for linkedin //
-    // await linkPassword.click({ clickCount: 3 });
-    // await linkPassword.type("programmerrony01"); // add password for linkedin account
-    // await linkSubmit.click();
+
     await linktoCommons.click();
     await page.waitForNavigation();
-    // await page.waitFor(3000);
 
     //assertion - check
     const title = await page.title();

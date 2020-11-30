@@ -16,20 +16,6 @@ describe("Second test suite", async () => {
     //assertion - check
     const title = await page.title();
     expect(title).to.equal("Wikipedia");
-
-    // const emailInput = "#login-email";
-    // const passwordInput = "#login-password";
-    // const submitSelector = "#login-submit";
-    // linkEmail = await page.$(emailInput);
-    // linkPassword = await page.$(passwordInput);
-    // linkSubmit = await page.$(submitSelector);
-    // await linkEmail.click({ clickCount: 3 });
-    // await linkEmail.type("tariqul.islam.rony@gmail.com"); // add the email address for linkedin //
-    // await linkPassword.click({ clickCount: 3 });
-    // await linkPassword.type("programmerrony01"); // add password for linkedin account
-    // await linkSubmit.click();
-    // await page.waitForNavigation();
-    // await page.waitFor(3000);
   });
 
   it("should go to wikipedia, search for Estonia in the search bar, assert correct title and content", async () => {
