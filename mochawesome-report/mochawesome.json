@@ -1,0 +1,376 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 8,
+    "passes": 6,
+    "pending": 0,
+    "failures": 2,
+    "start": "2020-11-30T20:49:41.595Z",
+    "end": "2020-11-30T20:50:07.673Z",
+    "duration": 26078,
+    "testsRegistered": 8,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c7bf350c-2398-435f-aead-2b149d665202",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook in \"{root}\"",
+          "fullTitle": "\"before all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 1774,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
+          "err": {},
+          "uuid": "c6c802f7-55e8-4f6a-824c-6b8a902035ea",
+          "parentUUID": "c7bf350c-2398-435f-aead-2b149d665202",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook in \"{root}\"",
+          "fullTitle": "\"after all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 111,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "browser.close();\nsetTimeout(() => {\n  cmd.run(\"node server.js\");\n}, 5000);\nsetTimeout(() => {\n  opn(\"http://localhost:9988\");\n}, 2000);\n// open('./mochawesome-report/mochawesome.html');\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;",
+          "err": {},
+          "uuid": "3c0e0361-5d7a-4b5c-95cb-5e92de77b8ec",
+          "parentUUID": "c7bf350c-2398-435f-aead-2b149d665202",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+          "title": "First test suite",
+          "fullFile": "/Users/arpandutta/Documents/EUAS /STUDIES/Sem3/Testing/fp5/test/othersample.spec.js",
+          "file": "/test/othersample.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"First test suite\"",
+              "fullTitle": "First test suite \"before all\" hook in \"First test suite\"",
+              "timedOut": false,
+              "duration": 1066,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page = await browser.newPage();",
+              "err": {},
+              "uuid": "ff4039be-9f0a-4482-90c4-349c85cd564a",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"First test suite\"",
+              "fullTitle": "First test suite \"after all\" hook in \"First test suite\"",
+              "timedOut": false,
+              "duration": 116,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.close();",
+              "err": {},
+              "uuid": "de6cc167-6078-43f0-90eb-38611ffe65a2",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should go to wikipedia and click on Commons",
+              "fullTitle": "First test suite should go to wikipedia and click on Commons",
+              "timedOut": false,
+              "duration": 2892,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector\nconst commonsPathInput =\n  \"#www-wikipedia-org > div.footer > div.other-projects > div:nth-child(1) > a > div.other-project-text > span.other-project-title.jsl10n\";\n// generate the link\nlinktoCommons = await page.$(commonsPathInput);\n// linkEmail = await page.$(emailInput);\n// linkPassword = await page.$(passwordInput);\n// linkSubmit = await page.$(submitSelector);\n// await linkEmail.click({ clickCount: 3 });\n// await linkEmail.type(\"tariqul.islam.rony@gmail.com\"); // add the email address for linkedin //\n// await linkPassword.click({ clickCount: 3 });\n// await linkPassword.type(\"programmerrony01\"); // add password for linkedin account\n// await linkSubmit.click();\nawait linktoCommons.click();\nawait page.waitForNavigation();\n// await page.waitFor(3000);\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wikimedia Commons\");",
+              "err": {},
+              "uuid": "4ae7e702-e0da-421f-9f35-21a1ac83243a",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to wikipedia and click on WikiVoyage",
+              "fullTitle": "First test suite should go to wikipedia and click on WikiVoyage",
+              "timedOut": false,
+              "duration": 1881,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector\nconst wikiVoyagePathInput =\n  \"#www-wikipedia-org > div.footer > div.other-projects > div:nth-child(2) > a > div.other-project-text > span.other-project-title.jsl10n\";\n// generate the link\nlinktowikiVoyage = await page.$(wikiVoyagePathInput);\n//click the generated link\nawait linktowikiVoyage.click();\nawait page.waitForNavigation();\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wikivoyage\");",
+              "err": {},
+              "uuid": "82c9fb44-e9b1-490f-96c8-83d38e92b1f6",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to wikipedia and click on Wiktionary",
+              "fullTitle": "First test suite should go to wikipedia and click on Wiktionary",
+              "timedOut": false,
+              "duration": 2061,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector\nconst wiktionaryPathInput =\n  \"#www-wikipedia-org > div.footer > div.other-projects > div:nth-child(3) > a > div.other-project-text > span.other-project-title.jsl10n\";\n// generate the link\nlinktowiktionary = await page.$(wiktionaryPathInput);\n//click the generated link\nawait linktowiktionary.click();\nawait page.waitForNavigation();\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wiktionary\");",
+              "err": {},
+              "uuid": "be0e3e56-470a-49a2-95c9-ade80dbb069d",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to wikipedia and click on Wikibooks",
+              "fullTitle": "First test suite should go to wikipedia and click on Wikibooks",
+              "timedOut": false,
+              "duration": 2085,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector\nconst wikibooksPathInput =\n  \"#www-wikipedia-org > div.footer > div.other-projects > div:nth-child(4) > a > div.other-project-text > span.other-project-title.jsl10n\";\n// generate the link\nlinktowikibooks = await page.$(wikibooksPathInput);\n//click the generated link\nawait linktowikibooks.click();\nawait page.waitForNavigation();\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wikibooks\");",
+              "err": {},
+              "uuid": "2a33d8ff-eb60-4ae8-9ce3-8698b1949a5c",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to wikipedia and click on Wikinews",
+              "fullTitle": "First test suite should go to wikipedia and click on Wikinews",
+              "timedOut": false,
+              "duration": 2002,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector\nconst wikinewsPathInput =\n  \"#www-wikipedia-org > div.footer > div.other-projects > div:nth-child(5) > a > div.other-project-text > span.other-project-title.jsl10n\";\n// generate the link\nlinktowikinews = await page.$(wikinewsPathInput);\n//click the generated link\nawait linktowikinews.click();\nawait page.waitForNavigation();\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wikinews\");",
+              "err": {},
+              "uuid": "4fa3ca1e-aa4b-415b-8801-6f6b06fce3b0",
+              "parentUUID": "ebb93fcd-182d-4057-af4c-fd925014ddf3",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4ae7e702-e0da-421f-9f35-21a1ac83243a",
+            "82c9fb44-e9b1-490f-96c8-83d38e92b1f6",
+            "be0e3e56-470a-49a2-95c9-ade80dbb069d",
+            "2a33d8ff-eb60-4ae8-9ce3-8698b1949a5c",
+            "4fa3ca1e-aa4b-415b-8801-6f6b06fce3b0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10921,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        },
+        {
+          "uuid": "b1d2d249-c671-4d07-8092-19f0de09e882",
+          "title": "Second test suite",
+          "fullFile": "/Users/arpandutta/Documents/EUAS /STUDIES/Sem3/Testing/fp5/test/sample.spec.js",
+          "file": "/test/sample.spec.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Second test suite\"",
+              "fullTitle": "Second test suite \"before all\" hook in \"Second test suite\"",
+              "timedOut": false,
+              "duration": 755,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page = await browser.newPage();",
+              "err": {},
+              "uuid": "718393f5-142e-464b-9144-c7fa62726aa1",
+              "parentUUID": "b1d2d249-c671-4d07-8092-19f0de09e882",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Second test suite\"",
+              "fullTitle": "Second test suite \"after all\" hook in \"Second test suite\"",
+              "timedOut": false,
+              "duration": 114,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.close();",
+              "err": {},
+              "uuid": "18bac0e7-d494-4000-b040-67745635cff5",
+              "parentUUID": "b1d2d249-c671-4d07-8092-19f0de09e882",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should navigate to wikipedia",
+              "fullTitle": "Second test suite should navigate to wikipedia",
+              "timedOut": false,
+              "duration": 757,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n//assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Wikipedia\");\n// const emailInput = \"#login-email\";\n// const passwordInput = \"#login-password\";\n// const submitSelector = \"#login-submit\";\n// linkEmail = await page.$(emailInput);\n// linkPassword = await page.$(passwordInput);\n// linkSubmit = await page.$(submitSelector);\n// await linkEmail.click({ clickCount: 3 });\n// await linkEmail.type(\"tariqul.islam.rony@gmail.com\"); // add the email address for linkedin //\n// await linkPassword.click({ clickCount: 3 });\n// await linkPassword.type(\"programmerrony01\"); // add password for linkedin account\n// await linkSubmit.click();\n// await page.waitForNavigation();\n// await page.waitFor(3000);",
+              "err": {},
+              "uuid": "a70da837-3394-45ae-9906-7ea54c333137",
+              "parentUUID": "b1d2d249-c671-4d07-8092-19f0de09e882",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should go to wikipedia, search for Estonia in the search bar, assert correct title and content",
+              "fullTitle": "Second test suite should go to wikipedia, search for Estonia in the search bar, assert correct title and content",
+              "timedOut": false,
+              "duration": 4982,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector for the search bar, search button\nconst searchBarPathInput = \"#searchInput\";\nconst searchBarButton = \"#search-form > fieldset > button\";\n// generate the links\nlinktoSearchBar = await page.$(searchBarPathInput);\nlinkToSearchButton = await page.$(searchBarButton);\n// type the search query\nawait linktoSearchBar.type(\"Estonia\");\nawait linkToSearchButton.click();\nawait page.waitForNavigation();\n// assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Estonia - Wikipedia\");\nconst expectedFirstParagraph =\n  \"Estonia (Estonian: Eesti [ˈeːsʲti] (About this soundlisten)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.\";\nconst realFirstParagraph = await page.evaluate(\n  () =>\n    document.querySelector(\n      \"#mw-content-text > div.mw-parser-output > p:nth-child(6)\"\n    ).textContent\n);\nconsole.log(realFirstParagraph);\nexpect(expectedFirstParagraph).to.equal(realFirstParagraph);",
+              "err": {
+                "message": "AssertionError: expected 'Estonia (Estonian: Eesti [ˈeːsʲti] (About this soundlisten)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.' to equal 'Estonia (Estonian: Eesti [ˈeːsʲti] (listen)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.\\n'",
+                "estack": "AssertionError: expected 'Estonia (Estonian: Eesti [ˈeːsʲti] (About this soundlisten)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.' to equal 'Estonia (Estonian: Eesti [ˈeːsʲti] (listen)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.\\n'\n    at Context.it (test/sample.spec.js:67:39)",
+                "diff": "- Estonia (Estonian: Eesti [ˈeːsʲti] (About this soundlisten)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.\n+ Estonia (Estonian: Eesti [ˈeːsʲti] (listen)), officially the Republic of Estonia (Estonian: Eesti Vabariik), is a country on the eastern coast of the Baltic Sea in Northern Europe. It is bordered to the north by the Gulf of Finland across from Finland, to the west by the Baltic Sea across from Sweden, to the south by Latvia, and to the east by Lake Peipus and Russia. The territory of Estonia consists of the mainland and of 2,222 islands in the Baltic Sea,[15] covering a total area of 45,227 km2 (17,462 sq mi), and is influenced by a humid continental climate. Tallinn, the capital of Estonia, and Tartu are the largest cities and urban areas in the country. Other notable cities include Narva, Pärnu, Kohtla-Järve and Viljandi. The official language of the country, Estonian, is the second-most-spoken Finnic language.\n"
+              },
+              "uuid": "4f9ac8a8-e13f-4ce0-a0ea-f5d9cf352ba4",
+              "parentUUID": "b1d2d249-c671-4d07-8092-19f0de09e882",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should navigate to wikipedia, search for Estonia in the search bar, then show wiki page on Narva",
+              "fullTitle": "Second test suite should navigate to wikipedia, search for Estonia in the search bar, then show wiki page on Narva",
+              "timedOut": false,
+              "duration": 5464,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await page.goto(\"https://www.wikipedia.org/\");\nawait page.setViewport({ width: 1920, height: 1040 });\n// the css selector for the search bar, search button\nconst searchBarPathInput = \"#searchInput\";\nconst searchBarButton = \"#search-form > fieldset > button\";\n// generate the links\nlinktoSearchBar = await page.$(searchBarPathInput);\nlinkToSearchButton = await page.$(searchBarButton);\n// type the search query\nawait linktoSearchBar.type(\"Estonia\");\nawait linkToSearchButton.click();\nawait page.waitForNavigation();\n// Narva\nconst narvaPathInput =\n  \"#mw-content-text > div.mw-parser-output > p:nth-child(6) > a:nth-child(25)\";\nlinkToNarva = await page.$(narvaPathInput);\nawait linkToNarva.click();\nawait page.waitForNavigation();\n// assertion - check\nconst title = await page.title();\nexpect(title).to.equal(\"Narva - Wikipedia\");\nconst narvaBriefExpected =\n  \"Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia. It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country's third largest after Tallinn and Tartu.\";\nconst narvaBriefReal = await page.evaluate(\n  () =>\n    document.querySelector(\n      \"#mw-content-text > div.mw-parser-output > p:nth-child(5)\"\n    ).textContent\n);\nexpect(narvaBriefExpected).to.equal(narvaBriefReal);",
+              "err": {
+                "message": "AssertionError: expected 'Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia. It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country\\'s third largest after Tallinn and Tartu.' to equal 'Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia.  It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country\\'s third largest after Tallinn and Tartu.\\n'",
+                "estack": "AssertionError: expected 'Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia. It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country\\'s third largest after Tallinn and Tartu.' to equal 'Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia.  It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country\\'s third largest after Tallinn and Tartu.\\n'\n    at Context.it (test/sample.spec.js:111:35)",
+                "diff": "- Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia. It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country's third largest after Tallinn and Tartu.\n+ Narva (Estonian pronunciation: [ˈnɑrʋɑ]; Russian: Нарва, Russian pronunciation: [ˈnarvə]) is a municipality and city in Estonia.  It is located in Ida-Viru County, at the eastern extreme point of Estonia, at the Russian border, on the Narva River which drains Lake Peipus. The city of Narva is the country's third largest after Tallinn and Tartu.\n"
+              },
+              "uuid": "20fd21dc-1543-4581-84b4-38373d213d07",
+              "parentUUID": "b1d2d249-c671-4d07-8092-19f0de09e882",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a70da837-3394-45ae-9906-7ea54c333137"
+          ],
+          "failures": [
+            "4f9ac8a8-e13f-4ce0-a0ea-f5d9cf352ba4",
+            "20fd21dc-1543-4581-84b4-38373d213d07"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 11203,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.2.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.1.0"
+    }
+  }
+}
